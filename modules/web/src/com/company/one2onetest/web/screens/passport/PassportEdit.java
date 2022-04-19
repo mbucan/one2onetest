@@ -29,9 +29,12 @@ public class PassportEdit extends StandardEditor<Passport> {
 
     @Subscribe
     public void onAfterShow(AfterShowEvent event) {
-        Optional<Person> person = loadPersonByPassportNumber(passportDc.getItem().getPassportNumber().toString());
-        personNameField.setValue(person.get().getName());
-        personSurnameField.setValue(person.get().getSurname());
+            Optional<Person> person = Optional.empty();
+            person = loadPersonByPassportNumber(passportDc.getItem().getPassportNumber());
+            if (person.isPresent()) {
+                personNameField.setValue(person.get().getName());
+                personSurnameField.setValue(person.get().getSurname());
+            }
     }
 
     private Optional<Person> loadPersonByPassportNumber(String passportNo) {
