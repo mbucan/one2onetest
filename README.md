@@ -11,7 +11,7 @@ Steps:
 6. Create new screen from Person , Entity browser and editor screens, use person-view for both browse and edit screen
 
 So far so good, you can CRUD Person and Passport in Person browse , now to have indicator in Passport edit as to which person it belongs to.
-(because you cant have Person attribute aded to Passport)
+(because you can't have Person attribute added to Passport)
 
 7. Edit passport-edit.xml to add textfields , enabled is false so they cant be changed
                     <textField id="personNameField" enable="false" caption="Name"/>
