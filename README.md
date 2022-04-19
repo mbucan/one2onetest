@@ -19,18 +19,4 @@ So far so good, you can CRUD Person and Passport in Person browse , now to have 
 8. We need to populate this field with desired data, in this case name and surname, to do that we will add loadPersonByPassportNumber method to PassportEdit,
     and use it onAfterShow event of the screen, that is triggered every time screen is showed. I'm using Optional because if query result is empty,
     then the result is convenient.                     
-
-    public void onAfterShow(AfterShowEvent event) {
-        Optional<Person> person = loadPersonByPassportNumber(passportDc.getItem().getPassportNumber().toString());
-        personNameField.setValue(person.get().getName());
-        personSurnameField.setValue(person.get().getSurname());
-    }
-
-    private Optional<Person> loadPersonByPassportNumber(String passportNo) {
-        return dataManager.load(Person.class)
-                .query("select e from one2onetest_Person e where e.passport.passportNumber = :paramPassportNumber")
-                .parameter("paramPassportNumber", passportNo)
-                .view("person-view")
-                .optional();
-    }
-
+    
