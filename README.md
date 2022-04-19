@@ -20,7 +20,6 @@ So far so good, you can CRUD Person and Passport in Person browse , now to have 
     and use it onAfterShow event of the screen, that is triggered every time screen is showed. I'm using Optional because if query result is empty,
     then the result is convenient.                     
 
-@Subscribe
     public void onAfterShow(AfterShowEvent event) {
         Optional<Person> person = loadPersonByPassportNumber(passportDc.getItem().getPassportNumber().toString());
         personNameField.setValue(person.get().getName());
